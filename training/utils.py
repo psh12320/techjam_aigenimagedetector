@@ -25,7 +25,7 @@ def compute_metrics(predictions, labels, threshold=0.5):
         'precision': precision_score(labels, pred_binary, zero_division=0),
         'recall': recall_score(labels, pred_binary, zero_division=0),
         'f1': f1_score(labels, pred_binary, zero_division=0),
-        'auc': roc_auc_score(labels, predictions) if len(set(labels)) > 1 else 0.0
+        'auc': roc_auc_score(labels, predictions) if len(np.unique(labels)) > 1 else 0.0
     }
 
     return metrics
